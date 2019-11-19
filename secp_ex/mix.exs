@@ -34,7 +34,11 @@ defmodule SecpEx.MixProject do
       {:unix, type} when type in [:freebsd, :openbsd] ->
         [
           {:eleveldb, "2.2.20", override: true, compile: "rebar compile"},
-          {:keccakf1600, "~> 3.0.0", override: true}
+          # {:keccakf1600, "~> 3.0.0", override: true},
+          # {:keccakf1600, "~> 2.0.0", override: true},
+          {:keccakf1600, git: "https://github.com/DigixGlobal/erlang-keccakf1600.git", branch: "fix/freebsd", override: true},
+          # {:libsecp256k1, "~> 0.1.9"}
+          {:libsecp256k1, git: "https://github.com/DigixGlobal/libsecp256k1.git", branch: "fix/freebsd", override: true}
         ]
 
       _ ->
