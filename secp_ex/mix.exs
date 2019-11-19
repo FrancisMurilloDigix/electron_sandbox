@@ -33,7 +33,7 @@ defmodule SecpEx.MixProject do
       {:unix, type} when type in [:freebsd, :openbsd] ->
         [
           {:eleveldb, "2.2.20", override: true, compile: "rebar compile"},
-          {:keccakf1600, git: "https://github.com/DigixGlobal/erlang-keccackf1600.git", branch: "fix/freebsd", override: true}
+          {:keccakf1600, git: "https://github.com/DigixGlobal/erlang-keccakf1600.git", branch: "fix/freebsd", override: true}
         ]
 
       _ ->
