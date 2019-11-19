@@ -33,7 +33,8 @@ defmodule SecpEx.MixProject do
     case :os.type() do
       {:unix, type} when type in [:freebsd, :openbsd] ->
         [
-          {:eleveldb, "2.2.20", override: true, manager: :rebar}
+          {:eleveldb, "2.2.20", override: true, compile: "rebar compile"},
+          {:keccakf1600, "~> 3.0.0", override: true}
         ]
 
       _ ->
