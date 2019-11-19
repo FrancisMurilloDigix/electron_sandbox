@@ -11,18 +11,18 @@ defmodule SecpEx.MixProject do
     ]
   end
 
-  # Run "mix help compile.app" to learn about applications.
   def application do
     [
       extra_applications: [:logger]
     ]
   end
 
-  # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
       {:blockchain, "~> 0.1.7"},
-      {:libsecp256k1, git: "https://github.com/DigixGlobal/libsecp256k1.git", branch: "fix/freebsd", override: true}
+      {:exth_crypto, "~> 0.1.4"},
+      {:libsecp256k1, git: "https://github.com/DigixGlobal/libsecp256k1.git", branch: "fix/freebsd", override: true},
+      {:eleveldb, "2.2.20", override: true, compile: "rebar compile"}
     ]
   end
 end
