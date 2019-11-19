@@ -23,7 +23,7 @@ defmodule SecpEx.MixProject do
       {:exth_crypto, "~> 0.1.4"},
       # {:libsecp256k1, "~> 0.1.9"},
       # {:libsecp256k1, git: "https://github.com/DigixGlobal/libsecp256k1.git", branch: "fix/freebsd", override: true},
-      {:eleveldb, "2.2.20", override: true, manager: :rebar3}
+      {:eleveldb, "2.2.20", manager: :rebar3}
       # {:keccakf1600, "~> 2.0.0", override: true}
     ]  ++
       bsd_deps()
