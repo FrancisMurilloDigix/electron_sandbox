@@ -1,0 +1,28 @@
+defmodule SecpEx.MixProject do
+  use Mix.Project
+
+  def project do
+    [
+      app: :secp_ex,
+      version: "0.1.0",
+      elixir: "~> 1.9",
+      start_permanent: Mix.env() == :prod,
+      deps: deps()
+    ]
+  end
+
+  # Run "mix help compile.app" to learn about applications.
+  def application do
+    [
+      extra_applications: [:logger]
+    ]
+  end
+
+  # Run "mix help deps" to learn about dependencies.
+  defp deps do
+    [
+      {:blockchain, "~> 0.1.7"},
+      {:libsecp256k1, git: "https://github.com/DigixGlobal/libsecp256k1.git", branch: "fix/freebsd", override: true}
+    ]
+  end
+end
