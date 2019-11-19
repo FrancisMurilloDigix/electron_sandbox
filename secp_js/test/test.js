@@ -33,8 +33,8 @@ describe('index.js', function() {
         "v": 28,
       };
 
-      assert.equal(sign.r.toString(), shouldBe.r.toString());
-      assert.equal(sign.s.toString(), shouldBe.s.toString());
+      assert.equal(sign.r.toString('hex'), shouldBe.r.toString('hex'));
+      assert.equal(sign.s.toString('hex'), shouldBe.s.toString('hex'));
       assert.equal(sign.v, shouldBe.v);
     });
 
@@ -49,8 +49,24 @@ describe('index.js', function() {
         "v": 27,
       };
 
-      assert.equal(sign.r.toString(), shouldBe.r.toString());
-      assert.equal(sign.s.toString(), shouldBe.s.toString());
+      assert.equal(sign.r.toString('hex'), shouldBe.r.toString('hex'));
+      assert.equal(sign.s.toString('hex'), shouldBe.s.toString('hex'));
+      assert.equal(sign.v, shouldBe.v);
+    });
+
+    it('case 3', function () {
+      const sign = signWrapper(
+        Buffer.from('cf4364e2a97dac300bd9428cf2cb4d6c7c40c73d858cf75f09b74991936e1dbe', 'hex'),
+        Buffer.from('c7ab866d2d2e600aad1a5310cc0c7ac16bca55342ff98b365714b13ffef6ca1e', 'hex'),
+      );
+      const shouldBe = {
+        "r": Buffer.from('96eaf2b31c121e7fd6624eeb70b78f9a23e0efa8a11f411c76284ba34d18de3c', 'hex'),
+        "s": Buffer.from('10274ee91345cd0f699e285dcadefb5e60e7b1740fce093302f516cff1777c6b', 'hex'),
+        "v": 27,
+      }
+
+      assert.equal(sign.r.toString('hex'), shouldBe.r.toString('hex'));
+      assert.equal(sign.s.toString('hex'), shouldBe.s.toString('hex'));
       assert.equal(sign.v, shouldBe.v);
     });
   });
