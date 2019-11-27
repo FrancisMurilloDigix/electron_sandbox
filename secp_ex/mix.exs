@@ -25,7 +25,7 @@ defmodule SecpEx.MixProject do
       # {:libsecp256k1, git: "https://github.com/DigixGlobal/libsecp256k1.git", branch: "fix/freebsd", override: true},
       # {:eleveldb, "2.2.20", manager: :rebar3}
       # {:keccakf1600, "~> 2.0.0", override: true}
-    ]  ++
+    ] ++
       bsd_deps()
   end
 
@@ -34,8 +34,14 @@ defmodule SecpEx.MixProject do
       {:unix, type} when type in [:freebsd, :openbsd] ->
         [
           {:eleveldb, "2.2.20", override: true, compile: "rebar compile"},
-          {:keccakf1600, git: "https://github.com/DigixGlobal/erlang-keccakf1600.git", branch: "fix/freebsd", override: true},
-          {:libsecp256k1, git: "https://github.com/DigixGlobal/libsecp256k1.git", branch: "fix/freebsd", override: true}
+          {:keccakf1600,
+           git: "https://github.com/DigixGlobal/erlang-keccakf1600.git",
+           branch: "fix/freebsd",
+           override: true},
+          {:libsecp256k1,
+           git: "https://github.com/DigixGlobal/libsecp256k1.git",
+           branch: "fix/freebsd",
+           override: true}
         ]
 
       _ ->
